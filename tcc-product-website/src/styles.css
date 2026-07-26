@@ -10,8 +10,19 @@
 
 body {
     background-color: var(--color-secondary);
+    font-family: 'Fredoka', sans-serif;
 }
 
-body {
-    font-family: 'Fredoka', sans-serif;
+.primary-button {
+    background-color: var(--color-accent);
+    font-size: 14;
+    border-radius: 15px;
+    color: #FFFFFF;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
