@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './navbar.component.html',
 })
+
 export class NavbarComponent {
   isMobileMenuOpen = false;
 
