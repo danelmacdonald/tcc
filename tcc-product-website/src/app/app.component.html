@@ -1,13 +1,20 @@
-<app-navbar> </app-navbar>
+<body class="flex flex-col min-h-screen">
+    <app-navbar> </app-navbar>
 
-<main class="main">
-    <div class="pt-[30px] pr-[30px] pb-[20px] text-[var(--color-text-dark)] font-medium text-center md:text-right">Want
-        something
-        custom?
-        Submit a request
-        and
-        let's chat.</div>
-    <div class="primary-button w-40 mx-auto md:ml-auto md:mr-[30px]">Submit Request</div>
-</main>
+    <main class="main flex-grow">
+        <div
+            class="pt-[30px] md:pr-[30px] pb-[20px] text-[var(--color-text-dark)] font-medium text-center md:text-right">
+            Want
+            something
+            custom?
+            Submit a request
+            and
+            let's chat.</div>
+        <div class="primary-button w-40 mx-auto md:ml-auto md:mr-[30px]">Submit Request</div>
+    </main>
+
+    <app-banner> </app-banner>
+    <app-footer> </app-footer>
+</body>
 
 <router-outlet />
