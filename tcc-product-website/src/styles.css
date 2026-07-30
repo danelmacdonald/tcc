@@ -26,3 +26,33 @@ body {
     padding-top: 12px;
     padding-bottom: 12px;
 }
+
+.secondary-button {
+    background-color: #FFFFFF;
+    font-size: 14;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.input {
+    background-color: #FFFFFF;
+    font-size: 14;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: var(--color-primary);
+    color: var(--color-text-dark);
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
