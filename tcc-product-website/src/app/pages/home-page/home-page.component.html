@@ -1,0 +1,29 @@
+<div class="flex-grow">
+  <section class="py-[30px] sm:px-[15px] md:px-[30px]">
+    <div class="pb-[20px] text-center font-medium text-[var(--color-text-dark)] md:text-right">
+      Want something custom? Submit a request and let's chat.
+    </div>
+    <button (click)="dialog.open()" class="primary-button mx-auto block w-40 md:ml-auto md:mr-0">
+      Submit Request
+    </button>
+
+    <div
+      class="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 py-[70px] md:py-[100px] justify-items-center">
+      <app-product-card imageUrl="products/bottle-phone-charm/20260705_134242.jpg" name="Bottle Phone Charm"
+        price="R60.00" />
+      <app-product-card imageUrl="products/doughnut-kitty-keychain/20260705_143023.jpg" name="Doughnut Kitty Keychain"
+        price="R50.00" />
+      <app-product-card imageUrl="products/flower-charm-bracelet/20260705_131728.jpg" name="Flower Charm Bracelet"
+        price="R130.00" />
+      <app-product-card imageUrl="products/game-controller-keychain/20260705_130120(1).jpg"
+        name="Game Controller Keychain" price="R75.00" />
+      <app-product-card imageUrl="products/hair-clip/20260722_135548.jpg" name="Hair Clip" price="R45.00" />
+      <app-product-card imageUrl="products/headphone-keychain/20260705_141232.jpg" name="Headphone Keychain"
+        price="R50.00" />
+    </div>
+  </section>
+
+  <app-request-dialog (submitted)="onRequestSubmitted($event)" />
+</div>
+
+<app-banner />

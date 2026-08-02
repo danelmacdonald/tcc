@@ -56,3 +56,10 @@ body {
     padding-top: 12px;
     padding-bottom: 12px;
 }
+
+app-home-page {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 0;
+}

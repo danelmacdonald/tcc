@@ -1,11 +1,10 @@
-<footer class="bg-[var(--color-secondary)] text-[var(--color-text-dark)] py-6 px-4 sm:px-8">
+<footer class="text-[var(--color-text-dark)] py-6 px-4 sm:px-8" [class.bg-[var(--color-secondary)]]="isHomePage"
+  [class.bg-[var(--color-primary)]]="!isHomePage">
   <div class="grid grid-cols-1 md:grid-cols-2">
 
     <div class="flex flex-col gap-3">
-      <div class="font-medium">Contact</div>
-      <div class="font-medium">FAQ</div>
-      <div class="font-medium">Payment information</div>
-      <div class="font-medium pb-5 md:pb-0">Delivery information</div>
+      <div class="font-medium cursor-pointer" (click)="dialog.open()">Contact</div>
+      <a routerLink="/delivery" class="font-medium pb-5 md:pb-0">Delivery information</a>
     </div>
 
     <div class="flex flex-col md:justify-end md:items-end md:text-right gap-4 md:gap-5">
@@ -20,14 +19,19 @@
           </svg>
         </a>
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-          class="w-[28px] h-[28px] cursor-pointer text-[var(--color-text-dark)] hover:text-black">
-          <rect width="20" height="16" x="2" y="4" rx="2" />
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-        </svg>
+        <a href="mailto:teescraftscorner@gmail.com">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="w-[28px] h-[28px] cursor-pointer text-[var(--color-text-dark)] hover:text-black">
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+        </a>
       </div>
       <div class=" font-medium text-xs">Website by Danél MacDonald</div>
     </div>
+
+    <app-contact-dialog (submitted)="onRequestSubmitted($event)" />
+
   </div>
 </footer>

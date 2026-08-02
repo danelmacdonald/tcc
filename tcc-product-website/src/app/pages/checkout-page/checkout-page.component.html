@@ -1,0 +1,100 @@
+<section class="px-4 py-10 sm:px-8 lg:px-16">
+  <div class=" mx-auto max-w-6xl">
+    <div class="mb-8 text-center lg:text-left">
+      <h1 class="text-[32px] font-semibold text-[var(--color-text-dark)]">Checkout</h1>
+      <p class="mt-2 text-[var(--color-text-light)]">Review your cart and send through your order details. We will
+        contact you as soon as possible to discuss any details and the delivery of your order.</p>
+    </div>
+
+    <div *ngIf="orderPlaced()" class="mb-8 rounded-[28px] bg-white p-6 text-center shadow-sm">
+      <h2 class="text-2xl font-semibold text-[var(--color-text-dark)]">Order request sent</h2>
+      <p class="mt-2 text-[var(--color-text-light)]">
+        Your cart has been saved as a checkout request. We can confirm details with you next.
+      </p>
+      <a routerLink="/" class="primary-button mt-5 inline-block min-w-40">Back to Shopping</a>
+    </div>
+
+    <div *ngIf="!orderPlaced() && items().length === 0" class="rounded-[28px] bg-white p-8 text-center shadow-sm">
+      <h2 class="text-2xl font-semibold text-[var(--color-text-dark)]">Your cart is empty</h2>
+      <p class="mt-2 text-[var(--color-text-light)]">Add a few favourites and they’ll show up here.</p>
+      <a routerLink="/" class="primary-button mt-5 inline-block min-w-40">Continue Shopping</a>
+    </div>
+
+    <div *ngIf="!orderPlaced() && items().length > 0" class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+      <section class="rounded-[32px] bg-white p-5 shadow-sm sm:p-6">
+        <h2 class="mb-5 text-2xl font-semibold text-[var(--color-text-dark)]">Your Items</h2>
+
+        <div class="flex flex-col gap-4">
+          <article *ngFor="let item of items()"
+            class="grid gap-4 rounded-[24px] bg-[var(--color-secondary)] p-4 sm:grid-cols-[96px_1fr]">
+            <img [src]="item.image" [alt]="item.name" class="aspect-square w-24 rounded-[20px] object-cover" />
+
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h3 class="text-lg font-semibold text-[var(--color-text-dark)]">{{ item.name }}</h3>
+                <p class="mt-1 font-medium text-[var(--color-text-dark)]">{{ item.price }}</p>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3 sm:justify-end">
+                <div class="flex items-center rounded-full border border-[var(--color-primary)] bg-white px-2 py-1">
+                  <button (click)="decreaseQuantity(item)"
+                    class="h-8 w-8 rounded-full text-lg font-semibold text-[var(--color-text-dark)]">-</button>
+                  <span class="w-8 text-center font-medium text-[var(--color-text-dark)]">{{ item.quantity }}</span>
+                  <button (click)="increaseQuantity(item)"
+                    class="h-8 w-8 rounded-full text-lg font-semibold text-[var(--color-text-dark)]">+</button>
+                </div>
+                <button (click)="removeItem(item)"
+                  class="text-sm font-medium text-[var(--color-accent)] underline-offset-4 hover:underline">
+                  Remove
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="rounded-[32px] bg-white p-5 shadow-sm sm:p-6">
+        <h2 class="mb-5 text-2xl font-semibold text-[var(--color-text-dark)]">Order Summary</h2>
+
+        <div class="space-y-4">
+          <label class="block">
+            <span class="mb-2 block font-medium text-[var(--color-text-dark)]">First name</span>
+            <input [(ngModel)]="firstName" class="input w-full bg-white" type="text" placeholder="First name" />
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block font-medium text-[var(--color-text-dark)]">Surname</span>
+            <input [(ngModel)]="surname" class="input w-full bg-white" type="text" placeholder="Surname" />
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block font-medium text-[var(--color-text-dark)]">Email</span>
+            <input [(ngModel)]="email" class="input w-full bg-white" type="email" placeholder="you@example.com" />
+          </label>
+
+          <label class="block">
+            <span class="mb-2 block font-medium text-[var(--color-text-dark)]">Notes</span>
+            <textarea [(ngModel)]="notes" class="input min-h-28 w-full bg-white"
+              placeholder="Additional notes"></textarea>
+          </label>
+        </div>
+
+        <div class="mt-6 rounded-[24px] bg-[var(--color-secondary)] p-4">
+          <div class="flex items-center justify-between text-lg font-semibold text-[var(--color-text-dark)]">
+            <span>Product Total</span>
+            <span>R{{ total().toFixed(2) }}</span>
+          </div>
+        </div>
+
+        <p *ngIf="errorMessage" class="mt-4 text-sm font-medium text-[var(--color-accent)]">
+          {{ errorMessage }}
+        </p>
+
+        <button (click)="placeOrder()" class="primary-button mt-6 w-full"
+          [disabled]="submitting || items().length === 0 || !firstName || !surname || !email">
+          {{ submitting ? 'Sending...' : 'Place Order Request' }}
+        </button>
+      </section>
+    </div>
+  </div>
+</section>

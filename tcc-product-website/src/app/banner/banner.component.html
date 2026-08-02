@@ -1,14 +1,22 @@
 <div class="bg-[var(--color-primary)] text-[var(--color-text-dark)] py-6">
-
   <div class="font-semibold text-[20px] text-center pb-6 px-4">Would you like to get notified of new products?</div>
 
-  <div class="flex items-center justify-end p-2 bg-white rounded-full w-[96%] md:w-[90%] lg:w-[70%] xl:w-[60%] mx-auto">
-    <input type="text" placeholder="Enter your email"
-      class="flex-1 px-3 bg-transparent outline-none text-[var(--color-text-dark)]" />
-    <button
-      class="px-10 py-4 bg-[var(--color-accent)] text-white font-medium rounded-full hover:opacity-90 transition cursor-pointer">
-      Subscribe
-    </button>
-  </div>
+  <div class="w-[96%] md:w-[90%] lg:w-[70%] xl:w-[60%] mx-auto">
+    <label class="mb-2 block font-medium text-[var(--color-text-dark)]">Email</label>
+    <div class="flex items-center justify-end rounded-full bg-white p-2">
+      <input [(ngModel)]="email" type="email" placeholder="Enter your email"
+        class="flex-1 px-3 bg-transparent outline-none text-[var(--color-text-dark)]" />
+      <button (click)="subscribe()" [disabled]="submitting"
+        class="px-10 py-4 bg-[var(--color-accent)] text-white font-medium rounded-full hover:opacity-90 transition cursor-pointer">
+        {{ submitting ? 'Sending...' : 'Subscribe' }}
+      </button>
+    </div>
 
+    <p *ngIf="errorMessage" class="mt-3 text-sm font-medium text-[var(--color-accent)]">
+      {{ errorMessage }}
+    </p>
+    <p *ngIf="successMessage" class="mt-3 text-sm font-medium text-[var(--color-text-dark)]">
+      {{ successMessage }}
+    </p>
+  </div>
 </div>

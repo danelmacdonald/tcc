@@ -1,0 +1,10 @@
+<a [routerLink]="['/product-detail', name, price]" class="flex w-full max-w-xs flex-col gap-2">
+    <img [src]="imageUrl" [alt]="name"
+        class="aspect-square w-full rounded-[40px] object-cover w-[90%] max-w-[320px] cursor-pointer" />
+    <div class="font-semibold text-[var(--color-text-dark)] text-[20px] pt-[10px]">
+        {{ name }}
+    </div>
+    <div class="font-semibold text-[var(--color-text-dark)] text-[16px]">
+        {{ price }}
+    </div>
+</a>

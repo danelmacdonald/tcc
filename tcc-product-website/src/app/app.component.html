@@ -1,22 +1,7 @@
-<body class="flex flex-col min-h-screen">
-    <app-navbar> </app-navbar>
-
-    <main class="main flex-grow py-[30px] sm:px-[15px] md:px-[30px]">
-        <div class="pb-[20px] text-[var(--color-text-dark)] font-medium text-center md:text-right">
-            Want
-            something
-            custom?
-            Submit a request
-            and
-            let's chat.</div>
-        <button (click)="dialog.open()" class="primary-button w-40 mx-auto md:ml-auto md:mr-0 block">Submit
-            Request</button>
-    </main>
-
-    <app-request-dialog (submitted)="onRequestSubmitted($event)"></app-request-dialog>
-
-    <app-banner> </app-banner>
-    <app-footer> </app-footer>
-</body>
-
-<router-outlet />
+<div class="flex min-h-screen flex-col">
+  <app-navbar />
+  <main class="flex-grow flex flex-col">
+    <router-outlet />
+  </main>
+  <app-footer />
+</div>

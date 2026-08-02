@@ -16,14 +16,26 @@
     </button>
 
     <form (ngSubmit)="onSubmit()" #requestForm="ngForm" class="flex flex-col gap-4 p-[20px]">
-      <input [(ngModel)]="firstName" name="firstName" type="text" placeholder="First name"
-        class="rounded-lg outline-none resize-none input" required />
-      <input [(ngModel)]="surname" name="surname" type="text" placeholder="Surname"
-        class="rounded-lg p-3 outline-none resize-none input" required />
-      <input [(ngModel)]="email" name="email" type="email" placeholder="Email"
-        class="rounded-lg p-3 outline-none resize-none input" required />
-      <textarea [(ngModel)]="requestText" name="requestText" placeholder="Describe what you're looking for..." rows="8"
-        class="rounded-lg p-3 outline-none resize-none input" required></textarea>
+      <label class="block">
+        <span class="mb-2 block font-medium text-[var(--color-text-dark)]">First name</span>
+        <input [(ngModel)]="firstName" name="firstName" type="text" placeholder="First name"
+          class="rounded-lg outline-none resize-none input w-full" required />
+      </label>
+      <label class="block">
+        <span class="mb-2 block font-medium text-[var(--color-text-dark)]">Surname</span>
+        <input [(ngModel)]="surname" name="surname" type="text" placeholder="Surname"
+          class="rounded-lg p-3 outline-none resize-none input w-full" required />
+      </label>
+      <label class="block">
+        <span class="mb-2 block font-medium text-[var(--color-text-dark)]">Email</span>
+        <input [(ngModel)]="email" name="email" type="email" placeholder="Email"
+          class="rounded-lg p-3 outline-none resize-none input w-full" required />
+      </label>
+      <label class="block">
+        <span class="mb-2 block font-medium text-[var(--color-text-dark)]">Request details</span>
+        <textarea [(ngModel)]="requestText" name="requestText" placeholder="Describe what you're looking for..." rows="8"
+          class="rounded-lg p-3 outline-none resize-none input w-full" required></textarea>
+      </label>
 
       @if (errorMessage) {
       <p class="text-red-500 text-sm">{{ errorMessage }}</p>
