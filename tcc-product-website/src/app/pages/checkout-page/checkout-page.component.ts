@@ -26,8 +26,7 @@ export class CheckoutPageComponent {
 
   readonly items = this.cartService.items;
   readonly subtotal = this.cartService.subtotal;
-  readonly shippingFee = computed(() => (this.items().length > 0 ? 75 : 0));
-  readonly total = computed(() => this.subtotal() + this.shippingFee());
+  readonly total = computed(() => this.subtotal());
 
   increaseQuantity(item: CartItem): void {
     this.cartService.updateQuantity(item.name, item.quantity + 1);
@@ -66,7 +65,8 @@ export class CheckoutPageComponent {
       Surname: this.surname,
       Email: this.email,
       Order: orderLines,
-      'Product Total': `R${this.total().toFixed(2)}`,
+      'Product Total': `R${this.subtotal().toFixed(2)}`,
+      Total: `R${this.total().toFixed(2)}`,
       Notes: this.notes || 'None',
     };
 
